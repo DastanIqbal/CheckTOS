@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Check TOS</string>
+
+    //Roboto Font names
+    <string name="robotoLight">font/Roboto-Light.ttf</string>
+    <string name="robotoMedium">font/Roboto-Medium.ttf</string>
+    <string name="robotoRegular">font/Roboto-Regular.ttf</string>
+    <string name="robotoThin">font/Roboto-Thin.ttf</string>
+    <string name="title_activity_mail_details">MailDetails</string>
+    <string name="check_t_odd_s_syndrome">Check T odd\'s Syndrome</string>
+    <string name="are_you_taking_any_hallucinogenic_drugs">Are you taking any hallucinogenic drugs?</string>
+    <string name="do_you_have_migraines">Do you have migraines?</string>
+    <string name="is_your_age_is_below_16">Is your age is below 16?</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+
+</resources>
