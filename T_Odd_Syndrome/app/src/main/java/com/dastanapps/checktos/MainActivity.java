@@ -11,10 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.dastanapps.dastanLib.networks.DastanRest;
 import com.dastanapps.dastanLib.networks.IRestRequest;
 import com.dastanapps.dastanLib.networks.RestAPI;
-import com.dastanapps.dastanLib.networks.RestRequest;
 import com.dastanapps.dastanLib.networks.RestResponse;
 import com.dastanapps.dastanLib.networks.StatusB;
 import com.dastanapps.dastanLib.utils.FontUtils;
@@ -23,8 +21,6 @@ import com.dastanapps.db.bean.UserInfoB;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -113,9 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         userCheckupInfob.percent = value;
         App.getDBInstance().insertUserCheckupInfo(userCheckupInfob);
 
-        HashMap<String, String> postParams = RestRequest.prepareTOS(resultObj.toString());
-        DastanRest.sentPostRequest(RestAPI.GET_TOS, postParams, RestAPI.ID_GET_TOS, this);
-        ViewUtils.showProgressDialog(MainActivity.this);
+//        HashMap<String, String> postParams = RestRequest.prepareTOS(resultObj.toString());
+//        DastanRest.sentPostRequest(RestAPI.GET_TOS, postParams, RestAPI.ID_GET_TOS, this);
+//        ViewUtils.showProgressDialog(MainActivity.this);
     }
 
     private float calculateTOS(String result) {
