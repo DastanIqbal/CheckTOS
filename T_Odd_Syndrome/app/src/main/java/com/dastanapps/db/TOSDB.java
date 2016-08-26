@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.dastanapps.dastanLib.log.Logger;
-import com.dastanapps.db.bean.UserInfoB;
+import com.dastanapps.db.bean.UserCheckupInfoB;
 
 import java.util.ArrayList;
 
@@ -67,7 +67,7 @@ public class TOSDB extends SQLiteOpenHelper {
      * @param userInfoB
      * @return id
      */
-    public long insertUserCheckupInfo(UserInfoB userInfoB) {
+    public long insertUserCheckupInfo(UserCheckupInfoB userInfoB) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
@@ -88,7 +88,7 @@ public class TOSDB extends SQLiteOpenHelper {
      * @param userInfoB
      * @return id
      */
-    public void updateUserCheckupInfo(UserInfoB userInfoB) {
+    public void updateUserCheckupInfo(UserCheckupInfoB userInfoB) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_UCI_CHECKUP_INFO, userInfoB.checkup_info);
@@ -121,7 +121,7 @@ public class TOSDB extends SQLiteOpenHelper {
      * @param id
      * @return
      */
-    public UserInfoB getUserCheckupInfo(int id) {
+    public UserCheckupInfoB getUserCheckupInfo(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(TBL_USER_CHECKUP_INFO, null, COL_UCI_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null) {
@@ -131,7 +131,7 @@ public class TOSDB extends SQLiteOpenHelper {
                 long timestamp = cursor.getLong(cursor.getColumnIndex(COL_UCI_TIMESTAMP));
                 float percent = cursor.getFloat(cursor.getColumnIndex(COL_UCI_PROBABILITY));
 
-                UserInfoB userInfoB = new UserInfoB();
+                UserCheckupInfoB userInfoB = new UserCheckupInfoB();
                 userInfoB.id = idd;
                 userInfoB.checkup_info = checkupInfo;
                 userInfoB.timestamp = timestamp;
@@ -144,15 +144,22 @@ public class TOSDB extends SQLiteOpenHelper {
         return null;
     }
 
+
+    public int getTotalCountUserCheckup() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from " + TBL_USER_CHECKUP_INFO, null);
+        return c.getCount();
+    }
+
     /**
      * Get All User checkup Info
      *
      * @return
      */
-    public ArrayList<UserInfoB> getAllUserCheckUpInfo() {
-        ArrayList<UserInfoB> usercheckupInfoList = new ArrayList<>();
+    public ArrayList<UserCheckupInfoB> getAllUserCheckUpInfo(int lastId) {
+        ArrayList<UserCheckupInfoB> usercheckupInfoList = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TBL_USER_CHECKUP_INFO, null, null, null, null, null, null);
+        Cursor cursor = db.query(TBL_USER_CHECKUP_INFO, null, COL_UCI_ID + " > ?", new String[]{String.valueOf(lastId)}, null, null, COL_UCI_TIMESTAMP + " desc", " 10");
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {

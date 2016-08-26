@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">Check TOS</string>
 
-    //Roboto Font names
-    <string name="robotoLight">font/Roboto-Light.ttf</string>
-    <string name="robotoMedium">font/Roboto-Medium.ttf</string>
-    <string name="robotoRegular">font/Roboto-Regular.ttf</string>
-    <string name="robotoThin">font/Roboto-Thin.ttf</string>
+    //App String
     <string name="title_activity_mail_details">MailDetails</string>
     <string name="check_t_odd_s_syndrome">Check T odd\'s Syndrome</string>
     <string name="are_you_taking_any_hallucinogenic_drugs">Are you taking any hallucinogenic drugs?</string>
@@ -13,5 +9,21 @@
     <string name="is_your_age_is_below_16">Is your age is below 16?</string>
     <string name="female">Female</string>
     <string name="male">Male</string>
+    <string name="mnu_savedlist">History</string>
+    <string name="no_items_found">No Items Found</string>
+    <string name="you_have_tos">% chances you have T\' Odd Syndrome</string>
+    <string name="checkup_history">Checkup History</string>
+
+    //Date Format
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="time_format">HH:mm</string>
+
+    //Roboto Font names
+    <string name="robotoLight">font/Roboto-Light.ttf</string>
+    <string name="robotoMedium">font/Roboto-Medium.ttf</string>
+    <string name="robotoRegular">font/Roboto-Regular.ttf</string>
+    <string name="robotoThin">font/Roboto-Thin.ttf</string>
+    <string name="invalid_request">Invalid Request</string>
+
 
 </resources>
